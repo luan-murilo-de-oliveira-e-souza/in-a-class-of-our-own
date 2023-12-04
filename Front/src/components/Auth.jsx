@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 export default function Auth() {
-    const[isLogIn,setIsLogin]=useState(true )
+    const[isLogIn,setIsLogin]=useState(false )
     const viweLogin=(status)=>{
         setIsLogin(status)
   }
@@ -27,16 +27,16 @@ export default function Auth() {
           onChange={(e)=>setConfirmPassword(e.target.value)}
           />}
           <input type='submit' className='create' onClick={(e)=>handleSubmit(e,isLogIn ? 'login':'signup')}/>
-           <p>'error'</p>
+        
         </form> 
         <div className='auth-options'>
           <button 
           onClick={()=>{viweLogin(false)}}
-          style={{backgroundColor: !isLogIn ? 'rgb(255,255,255)':'rgb(188,188,188)'}}
+          style={{backgroundColor: isLogIn ? 'rgb(255,255,255)':'rgb(188,188,188)'}}
           >Sign Up</button>
           <button
            onClick={()=>viweLogin(true)}
-           style={{backgroundColor: isLogIn ? 'rgb(255,255,255)':'rgb(188,188,188)'}}
+           style={{backgroundColor: !isLogIn ? 'rgb(255,255,255)':'rgb(188,188,188)'}}
            >Login</button>
           </div> 
          </div>
